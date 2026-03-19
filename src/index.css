@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #F9FAFB;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* RTL overrides */
+[dir='rtl'] .tabular-nums {
+  direction: ltr;         /* keep numbers LTR inside RTL layouts */
+  text-align: right;
+}
+
+[dir='rtl'] select {
+  text-align: right;
+}
+
+/* Ensure ingredient quantity numbers always read left-to-right */
+[dir='rtl'] .ingredient-qty {
+  direction: ltr;
+  unicode-bidi: embed;
+}
