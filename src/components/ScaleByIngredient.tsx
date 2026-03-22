@@ -37,7 +37,7 @@ export function ScaleByIngredient({ ingredients, onScale }: Props) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md space-y-5">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white rounded-2xl shadow-2xl p-5 sm:p-6 w-[calc(100%-2rem)] max-w-md max-h-[90vh] overflow-y-auto space-y-5">
           <div className="flex items-center justify-between">
             <Dialog.Title className="font-bold text-gray-800 text-lg">{t('scaleByIngTitle')}</Dialog.Title>
             <Dialog.Close className="text-gray-400 hover:text-gray-600 transition">

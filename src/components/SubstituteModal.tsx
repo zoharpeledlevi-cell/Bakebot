@@ -49,7 +49,7 @@ export function SubstituteModal({
     <Dialog.Root open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" />
-        <Dialog.Content className="fixed end-0 top-0 bottom-0 z-50 bg-white w-full max-w-sm shadow-2xl overflow-y-auto flex flex-col">
+        <Dialog.Content className="fixed end-0 top-0 bottom-0 z-50 bg-white w-full sm:max-w-sm shadow-2xl overflow-y-auto flex flex-col">
 
           {/* ── Header ── */}
           <div className="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">

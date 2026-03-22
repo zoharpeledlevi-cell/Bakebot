@@ -24,7 +24,7 @@ export function RecipeParser({ onParse, isParsing }: Props) {
       </div>
 
       <textarea
-        className="w-full h-56 p-4 rounded-xl border border-gray-200 text-sm text-gray-700 resize-none focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-300 transition"
+        className="w-full h-40 sm:h-56 p-4 rounded-xl border border-gray-200 text-sm text-gray-700 resize-none focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent placeholder-gray-300 transition"
         placeholder={t('pastePlaceholder')}
         value={text}
         onChange={(e) => setText(e.target.value)}

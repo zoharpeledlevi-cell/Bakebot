@@ -76,22 +76,34 @@ export default function App() {
       </header>
 
       {/* ── Main ── */}
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-8">
         {!recipe ? (
           <div className="max-w-2xl mx-auto space-y-6">
             <div className="text-center space-y-2 pb-2">
-              <h2 className="text-3xl font-extrabold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
                 {t('heroTitle1')}{' '}
                 <span className="text-amber-500">{t('heroTitleAccent')}</span>
               </h2>
-              <p className="text-gray-500 text-base">{t('heroSubtitle')}</p>
+              <p className="text-gray-500 text-sm sm:text-base">{t('heroSubtitle')}</p>
             </div>
             <RecipeParser onParse={parseRecipe} isParsing={isParsing} />
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-            {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
+            {/* Recipe card — first in DOM so it shows first on mobile */}
+            <div className="lg:col-span-2 lg:order-2">
+              <RecipeCard
+                recipe={recipe}
+                onToggleChecked={toggleChecked}
+                onSubstitute={(id, name) => openSubstitutes(id, name, recipe)}
+                onUpdateIngredient={updateIngredient}
+                onUpdateTitle={updateTitle}
+                onUpdateCategory={updateCategory}
+              />
+            </div>
+
+            {/* Sidebar — shown below RecipeCard on mobile, left on desktop */}
+            <div className="lg:col-span-1 lg:order-1 space-y-4">
               <ScalingControls
                 currentFactor={currentFactor}
                 onScale={applyScale}
@@ -100,18 +112,6 @@ export default function App() {
               <ScaleByIngredient
                 ingredients={recipe.ingredients}
                 onScale={scaleByIngredient}
-              />
-            </div>
-
-            {/* Recipe card */}
-            <div className="lg:col-span-2">
-              <RecipeCard
-                recipe={recipe}
-                onToggleChecked={toggleChecked}
-                onSubstitute={(id, name) => openSubstitutes(id, name, recipe)}
-                onUpdateIngredient={updateIngredient}
-                onUpdateTitle={updateTitle}
-                onUpdateCategory={updateCategory}
               />
             </div>
           </div>
